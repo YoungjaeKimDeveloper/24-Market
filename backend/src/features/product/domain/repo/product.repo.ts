@@ -1,10 +1,15 @@
 /*
   Repository - contract
 */
-import Post from "../entities/product.entity";
+import Product from "../entities/product.entity";
 export interface PostRepo {
-  fetchAllProducts(): Promise<Post[]>;
-  fetchSingleProduct(id: string): Promise<Post>;
-  updateSingleProduct(id: string): Promise<Post>;
-  deleteSingleProduct(id: string): Promise<void>;
+  fetchAllProducts(): Promise<Product[] | null>;
+  fetchSingleProduct(id: string): Promise<Product | null>;
+  updateSingleProduct(
+    id: string,
+    title: string,
+    price: number,
+    imageUrl: string
+  ): Promise<Product | null>;
+  deleteSingleProduct(id: string): Promise<Product | null>;
 }

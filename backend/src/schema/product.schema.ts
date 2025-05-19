@@ -8,6 +8,7 @@ const productSchema = async () => {
     title VARCHAR(255) NOT NULL ,
     price int NOT NULL,
     image_url VARCHAR(255) NOT NULL
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
 `;
     console.log("productSchema has been created✅");

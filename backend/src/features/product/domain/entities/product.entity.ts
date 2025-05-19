@@ -3,7 +3,8 @@
 */
 export default interface Product {
   id: number;
-  name: string;
+  title: string;
   price: number;
-  created_At: Date;
+  imageUrl: string;
+  created_at: Date;
 }
