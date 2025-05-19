@@ -1,3 +1,6 @@
+/*
+  Repository - contract
+*/
 import Post from "../entities/product.entity";
 export interface PostRepo {
   fetchAllProducts(): Promise<Post[]>;

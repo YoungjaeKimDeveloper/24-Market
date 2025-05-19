@@ -3,6 +3,15 @@ import productRouter from "./routes/product.route";
 import dotenv from "dotenv";
 import morgan from "morgan";
 import helmet from "helmet";
+import productSchema from "./schema/product.schema";
+
+const initDB = async () => {
+  try {
+    await productSchema();
+  } catch (error) {
+    console.log("Failed to connectDB❌");
+  }
+};
 
 const app = express();
 dotenv.config();
@@ -16,6 +25,8 @@ app.use("/api/products", productRouter);
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
-  console.log(`Serever is Running in ${PORT}`);
+initDB().then(() => {
+  app.listen(PORT, () => {
+    console.log(`Serever is Running in ${PORT}`);
+  });
 });
