@@ -6,7 +6,6 @@ import express from "express";
 const productRouter = express.Router();
 
 // fetchAllProducts
-
 productRouter.get("/", (req, res) => {});
 // fetchSingleProduct
 productRouter.get("/:id", (req, res) => {});
