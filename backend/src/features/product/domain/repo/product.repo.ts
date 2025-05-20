@@ -2,7 +2,7 @@
   Repository - contract
 */
 import Product from "../entities/product.entity";
-export interface PostRepo {
+export interface ProductRepo {
   fetchAllProducts(): Promise<Product[] | null>;
   fetchSingleProduct(id: string): Promise<Product | null>;
   updateSingleProduct(

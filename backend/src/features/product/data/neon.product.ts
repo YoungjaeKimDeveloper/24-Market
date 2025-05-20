@@ -5,11 +5,11 @@
     SQL Single TOn
 
 */
-import { PostRepo } from "../domain/repo/product.repo";
+import { ProductRepo } from "../domain/repo/product.repo";
 import Product from "../domain/entities/product.entity";
 import sql from "../../../config/db";
-
-class NeonProduct implements PostRepo {
+// Follow the contract
+class NeonProduct implements ProductRepo {
   // Fetch All Products
   fetchAllProducts = async (): Promise<Product[] | null> => {
     try {
@@ -17,7 +17,11 @@ class NeonProduct implements PostRepo {
             SELECT *
             FROM product
             `;
-      return products as Product[];
+      if (products != null) {
+        return products as Product[];
+      } else {
+        return [];
+      }
     } catch (error) {
       console.error("Failed to fetchAll Products");
       return [];
@@ -31,7 +35,11 @@ class NeonProduct implements PostRepo {
             FROM product
             WHERE product_id = ${id};
         `;
-      return singleProduct[0] as Product;
+      if (singleProduct != null) {
+        return singleProduct[0] as Product;
+      } else {
+        return null;
+      }
     } catch (error) {
       console.error(`Faiiled to fetch single product: ${error}`);
       return null;
