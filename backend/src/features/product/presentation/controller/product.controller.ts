@@ -1,10 +1,14 @@
 import { Request, Response } from "express";
 import NeonProduct from "../../data/neon.product";
+
 // Singleton - Programming
 const neonProduct = new NeonProduct();
 
 // Fetch All Products
-export const fetchAllProductsHandler = async (req: Request, res: Response) => {
+export const fetchAllProductsHandler = async (
+  req: Request,
+  res: Response
+): Promise<any> => {
   try {
     const products = await neonProduct.fetchAllProducts();
     if (products !== null && products.length != 0) {
@@ -24,7 +28,10 @@ export const fetchAllProductsHandler = async (req: Request, res: Response) => {
 };
 
 // Fetch Single Product
-export const fetchAProductHandler = async (req: Request, res: Response) => {
+export const fetchSingleProductHandler = async (
+  req: Request,
+  res: Response
+): Promise<any> => {
   const { id } = req.params;
   if (id == null) {
     return res
@@ -48,13 +55,21 @@ export const fetchAProductHandler = async (req: Request, res: Response) => {
   }
 };
 
-export const updateAProductHandler = async (req: Request, res: Response) => {
+export const updateAProductHandler = async (
+  req: Request,
+  res: Response
+): Promise<any> => {
   const { id } = req.params;
   const { title, price, imageUrl } = req.body;
   if (id == null) {
     return res
       .status(404)
       .json({ success: false, message: "Product ID is Required" });
+  }
+  if (!title || !price || !imageUrl) {
+    return res
+      .status(400)
+      .json({ success: false, message: "Please fill up the all forms" });
   }
   try {
     const updatedProduct = await neonProduct.updateSingleProduct(
@@ -80,7 +95,10 @@ export const updateAProductHandler = async (req: Request, res: Response) => {
   }
 };
 
-export const deleteAProductHandler = async (req: Request, res: Response) => {
+export const deleteAProductHandler = async (
+  req: Request,
+  res: Response
+): Promise<any> => {
   const { id } = req.body;
   if (id == null) {
     return res.status(404).json({

@@ -24,6 +24,9 @@ app.use(helmet());
 
 // Product Route
 app.use("/api/products", productRouter);
+app.get("/api/product", (req, res) => {
+  res.status(200).json({ message: "Hello" });
+});
 
 const PORT = process.env.PORT || 3000;
 

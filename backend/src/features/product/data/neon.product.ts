@@ -2,15 +2,38 @@
 
     Implement the funcaionlity to communicate with Database
     실제 DB와 연결되는곳 - Repository
-    SQL Single TOn
+    SQL SingleTon
 
 */
 import { ProductRepo } from "../domain/repo/product.repo";
 import Product from "../domain/entities/product.entity";
 import sql from "../../../config/db";
+import productRouter from "../presentation/router/product.router";
 // Follow the contract
 class NeonProduct implements ProductRepo {
-  // Fetch All Products
+  // CreateProduct - C
+  createProduct = async (
+    title: string,
+    price: number,
+    image_url: string
+  ): Promise<Product | null> => {
+    try {
+      const newProduct = await sql`
+            INSERT INTO product (title,price,image_url)
+            VALUES (${title},${price},${image_url})
+            RETURNING *;
+      `;
+      if (newProduct == null) {
+        return null;
+      } else {
+        return newProduct[0] as Product;
+      }
+    } catch (error) {
+      console.error(`Faiiled to create single product: ${error}`);
+      return null;
+    }
+  };
+  // Fetch All Products - R
   fetchAllProducts = async (): Promise<Product[] | null> => {
     try {
       const products = await sql`
@@ -27,7 +50,8 @@ class NeonProduct implements ProductRepo {
       return [];
     }
   };
-  //   Fetch single Product
+
+  // Fetch single Product - R
   fetchSingleProduct = async (id: string): Promise<Product | null> => {
     try {
       const singleProduct = await sql`
@@ -45,18 +69,19 @@ class NeonProduct implements ProductRepo {
       return null;
     }
   };
+  // Update Product - U
   updateSingleProduct = async (
     id: string,
     title: string,
     price: number,
-    imageUrl: string
+    image_url: string
   ): Promise<Product | null> => {
     try {
       const updatedProduct = await sql`
       UPDATE product
       SET title = ${title},
           price = ${price},
-          image_url = ${imageUrl}
+          image_url = ${image_url}
       WHERE product_id = ${id}
       RETURNING *
       `;
@@ -70,6 +95,7 @@ class NeonProduct implements ProductRepo {
       return null;
     }
   };
+  // Update Product - D
   deleteSingleProduct = async (id: string): Promise<Product | null> => {
     try {
       const deletedPost = await sql`

@@ -5,6 +5,6 @@ export default interface Product {
   id: number;
   title: string;
   price: number;
-  imageUrl: string;
+  image_url: string;
   created_at: Date;
 }
