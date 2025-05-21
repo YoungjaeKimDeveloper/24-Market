@@ -1,10 +1,53 @@
+/*
+    User Request <-->  controller 
+*/
 import { Request, Response } from "express";
 import NeonProduct from "../../data/neon.product";
 
 // Singleton - Programming
 const neonProduct = new NeonProduct();
 
-// Fetch All Products
+// Create new Product - C
+export const createProduct = async (
+  req: Request,
+  res: Response
+): Promise<any> => {
+  try {
+    const { title, price, image_url } = req.body;
+    if (!title || !price || !image_url) {
+      return res.status(400).json({
+        success: false,
+        message: "Please fill up the all forms to create a new product",
+      });
+    } else {
+      const newProduct = await neonProduct.createProduct(
+        title,
+        price,
+        image_url
+      );
+      if (newProduct != null) {
+        return res.status(200).json({
+          success: true,
+          message: "New product has been created successfully✅",
+          product: newProduct,
+        });
+      } else {
+        return res.status(404).json({
+          success: false,
+          message: "Failed to create new product",
+        });
+      }
+    }
+  } catch (error: any) {
+    console.debug("Failed to create new Product");
+    return res.status(500).json({
+      success: false,
+      message: `Failed to create a new product ${error.message || ""}`,
+    });
+  }
+};
+
+// Fetch All Products - R
 export const fetchAllProductsHandler = async (
   req: Request,
   res: Response
@@ -27,7 +70,7 @@ export const fetchAllProductsHandler = async (
   }
 };
 
-// Fetch Single Product
+// Fetch Single Product -R
 export const fetchSingleProductHandler = async (
   req: Request,
   res: Response
@@ -55,18 +98,18 @@ export const fetchSingleProductHandler = async (
   }
 };
 
-export const updateAProductHandler = async (
+export const updateSingleProductHandler = async (
   req: Request,
   res: Response
 ): Promise<any> => {
   const { id } = req.params;
-  const { title, price, imageUrl } = req.body;
+  const { title, price, image_url } = req.body;
   if (id == null) {
     return res
       .status(404)
       .json({ success: false, message: "Product ID is Required" });
   }
-  if (!title || !price || !imageUrl) {
+  if (!title || !price || !image_url) {
     return res
       .status(400)
       .json({ success: false, message: "Please fill up the all forms" });
@@ -76,7 +119,7 @@ export const updateAProductHandler = async (
       id,
       title,
       price,
-      imageUrl
+      image_url
     );
     if (updatedProduct == null) {
       return res
@@ -94,12 +137,12 @@ export const updateAProductHandler = async (
     });
   }
 };
-
-export const deleteAProductHandler = async (
+// Delete Product
+export const deleteSingleProductHandler = async (
   req: Request,
   res: Response
 ): Promise<any> => {
-  const { id } = req.body;
+  const { id } = req.params;
   if (id == null) {
     return res.status(404).json({
       success: false,

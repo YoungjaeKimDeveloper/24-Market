@@ -3,20 +3,23 @@
 */
 import express from "express";
 import {
-  deleteAProductHandler,
+  createProduct,
+  deleteSingleProductHandler,
   fetchAllProductsHandler,
   fetchSingleProductHandler,
-  updateAProductHandler,
+  updateSingleProductHandler,
 } from "../controller/product.controller";
 
 const productRouter = express.Router();
 
-// fetchAllProducts
+// Create new Product
+productRouter.post("/", createProduct);
+// fetchAllProducts - R
 productRouter.get("/", fetchAllProductsHandler);
-// fetchSingleProduct
+// fetchSingleProduct - R
 productRouter.get("/:id", fetchSingleProductHandler);
-// updateSingleProduct
-productRouter.put("/:id", updateAProductHandler);
-// deleteSingleProduct
-productRouter.delete("/:id", deleteAProductHandler);
+// updateSingleProduct -U
+productRouter.put("/:id", updateSingleProductHandler);
+// deleteSingleProduct -D
+productRouter.delete("/:id", deleteSingleProductHandler);
 export default productRouter;
