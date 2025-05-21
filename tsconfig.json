@@ -1,16 +1,25 @@
 {
+  // compilerOptions
   "compilerOptions": {
+    // Js로 변환할떄 사용할 ECMASscript 버전
     "target": "ES2020",
+    // 모듈 시스템 설정 (Node.js 에서는 commonjs 사용)
     "module": "commonjs",
+    // 실제 코드들이 들어있는곳 (ts file)
     "rootDir": "./backend/src",
+    // 컴파일 후 생성된 JS파일들이 저장될 폴처
     "outDir": "./backend/dist",
+    // CommomJs 모듈을 import/export방식으로 호환되게홤
     "esModuleInterop": true,
+
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
+    // typescript
     "strict": true,
     "skipLibCheck": true,
     "moduleResolution": "node",
     "allowJs": true
   },
+  // 빌드범위
   "include": ["backend/src"]
 }
