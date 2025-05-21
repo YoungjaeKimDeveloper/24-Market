@@ -1,4 +1,6 @@
+import axios from "axios";
 import { create } from "zustand";
+import axiosInstance from "../../../config/axiosInstance";
 
 const useBearStore = create((set) => ({
   // Data
@@ -7,11 +9,32 @@ const useBearStore = create((set) => ({
   isLoading: false,
   // isLoaded: false,
   // Messages
-  successMessage: "",
+
   errorMessage: "",
 
   // Actions
-  
-  increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
-  removeAllBears: () => set({ bears: 0 }),
+
+  // Actions - C
+  fetchAllProducts: async () => {
+    try {
+      set({ isLoading: true, errorMessage: "" });
+      const products = await axiosInstance.get("/");
+      if (products == null) {
+        return [];
+      } else {
+        set({ data: products.data });
+      }
+    } catch (error) {
+      set({
+        errorMessage: `Failed to fetch all products ${error.message ?? " "}`,
+      });
+    } finally {
+      set({ isLoading: false });
+    }
+  },
+  // Actions - R
+
+  // Actions - U
+
+  // Actions - D
 }));
