@@ -3,6 +3,7 @@ import express from "express";
 import dotenv from "dotenv";
 import morgan from "morgan";
 import helmet from "helmet";
+import cros from "cors";
 
 import productSchema from "./schema/product.schema";
 import productRouter from "./features/product/application/router/product.router";
@@ -20,6 +21,7 @@ dotenv.config();
 // Middleware Settings
 app.use(express.json());
 app.use(morgan("dev"));
+app.use(cros());
 app.use(helmet());
 
 // Product Route

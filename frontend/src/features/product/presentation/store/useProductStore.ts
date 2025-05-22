@@ -4,17 +4,19 @@
   API <---> State <---> 
  
 */
+import type Product from "../../domain/entity/product.ts";
 import { create } from "zustand";
 import ApiProduct from "../../data/apiProduct.ts";
 import toast from "react-hot-toast";
-
+import type ProductStore from "../../data/dto/productResponse.dto.ts.ts";
 // Singleton
 const apiProduct = new ApiProduct();
 
-const useProductStore = create((set) => ({
+const useProductStore = create<ProductStore>()((set, get) => ({
   // States
   // Data
-  data: [],
+  data: [] as Product[],
+
   // Statement
   isLoading: false,
   // Messages
@@ -27,7 +29,7 @@ const useProductStore = create((set) => ({
       set({ isLoading: true, errorMessage: "" });
       const products = await apiProduct.fetchAllProducts();
       if (products == null) {
-        return [];
+        set({ data: [] });
       } else {
         set({ data: products.data });
       }
