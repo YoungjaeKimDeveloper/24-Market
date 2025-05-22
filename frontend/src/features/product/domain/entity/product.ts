@@ -1,6 +1,7 @@
 /*
     Product interface - frontend
 */
+
 export default interface Product {
   id?: string;
   title: string;
