@@ -6,12 +6,7 @@
 */
 export default interface ProductRepo {
   // - C
-  createProduct(
-    id: string,
-    title: string,
-    price: number,
-    image_url: string
-  ): Promise<any>;
+  createProduct(title: string, price: number, image_url: string): Promise<any>;
   // - R
   fetchAllProducts(): Promise<any>;
   // - U

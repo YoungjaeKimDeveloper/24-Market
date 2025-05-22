@@ -1,7 +1,8 @@
 // import Home from "./pages/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import HomePage from "./features/product/pages/HomePage";
+import HomePage from "./features/product/presentation/pages/HomePage";
 import Navbar from "./features/product/presentation/components/Navbar";
+import { Toaster } from "react-hot-toast";
 export default function App() {
   return (
     <BrowserRouter>
@@ -9,6 +10,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
       </Routes>
+      <Toaster />
     </BrowserRouter>
   );
 }

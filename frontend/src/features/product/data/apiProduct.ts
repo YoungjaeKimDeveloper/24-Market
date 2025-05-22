@@ -10,13 +10,12 @@ import type ProductRepo from "../domain/repo/product.repo";
 class ApiProduct implements ProductRepo {
   // Create Product
   createProduct = async (
-    id: string,
     title: string,
     price: number,
     image_url: string
   ): Promise<any> => {
     try {
-      const request = await axiosInstance.post(`/${id}`, {
+      const request = await axiosInstance.post(`/`, {
         title,
         price,
         image_url,
@@ -75,3 +74,5 @@ class ApiProduct implements ProductRepo {
     }
   };
 }
+
+export default ApiProduct;
