@@ -2,8 +2,8 @@ import { DeleteIcon, EditIcon, TrashIcon } from "lucide-react";
 
 const CustomCard = () => {
   return (
-    <div className="p-10 m-auto lg:m-0">
-      <div className="card bg-base-100 w-64 shadow-sm ">
+    <div className="p-10 m-auto lg:m-0 ">
+      <div className="card bg-base-100 w-64 shadow-xl ">
         <figure>
           <img
             src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"

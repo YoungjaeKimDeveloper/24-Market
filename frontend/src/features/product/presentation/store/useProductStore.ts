@@ -1,19 +1,16 @@
-import axios from "axios";
 import { create } from "zustand";
-import axiosInstance from "../../../config/axiosInstance";
+import axiosInstance from "../../../../config/axiosInstance.ts";
 
-const useBearStore = create((set) => ({
+const useProductStore = create((set) => ({
+  // States
   // Data
   data: [],
   // Statement
   isLoading: false,
-  // isLoaded: false,
   // Messages
-
   errorMessage: "",
 
   // Actions
-
   // Actions - C
   fetchAllProducts: async () => {
     try {
@@ -24,7 +21,7 @@ const useBearStore = create((set) => ({
       } else {
         set({ data: products.data });
       }
-    } catch (error) {
+    } catch (error: any) {
       set({
         errorMessage: `Failed to fetch all products ${error.message ?? " "}`,
       });
@@ -38,3 +35,5 @@ const useBearStore = create((set) => ({
 
   // Actions - D
 }));
+
+export default useProductStore;

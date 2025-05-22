@@ -8,7 +8,7 @@
 import { ProductRepo } from "../domain/repo/product.repo";
 import Product from "../domain/entities/product.entity";
 import sql from "../../../config/db";
-import productRouter from "../presentation/router/product.router";
+import productRouter from "../application/router/product.router";
 // Follow the contract
 class NeonProduct implements ProductRepo {
   // CreateProduct - C

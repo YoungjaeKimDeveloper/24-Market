@@ -5,7 +5,7 @@ import morgan from "morgan";
 import helmet from "helmet";
 
 import productSchema from "./schema/product.schema";
-import productRouter from "./features/product/presentation/router/product.router";
+import productRouter from "./features/product/application/router/product.router";
 
 const initDB = async () => {
   try {
