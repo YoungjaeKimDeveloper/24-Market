@@ -3,7 +3,7 @@
 */
 
 export default interface Product {
-  id?: string;
+  product_id?: string;
   title: string;
   price: number;
   image_url: string;

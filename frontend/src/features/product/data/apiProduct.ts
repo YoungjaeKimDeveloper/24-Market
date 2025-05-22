@@ -29,17 +29,15 @@ class ApiProduct implements ProductRepo {
   // Fetch All Products
   fetchAllProducts = async (): Promise<any> => {
     try {
-      const products = await axiosInstance.get("/");
-      if (products.data.length == 0 || !products.data) {
-        return null;
-      } else {
-        return products.data.product;
-      }
+      const products = await axiosInstance.get("");
+      return products.data.products;
     } catch (error: any) {
       console.debug(
         `Failed to fetch All Products from API ${error.message || ""}}`
       );
       return null;
+    } finally {
+      console.log("Fetching Product done");
     }
   };
   // Update a Product
@@ -64,8 +62,9 @@ class ApiProduct implements ProductRepo {
   };
   // Delete a product
   deleteSingleProduct = async (id: string): Promise<any> => {
+    console.log("Id is here", id);
     try {
-      const response = await axiosInstance.delete(`/${id}`);
+      const response = await axiosInstance.delete(`${id}`);
       if (response.status == 201) {
         console.debug("Product has been deleted successfully ✅");
       }

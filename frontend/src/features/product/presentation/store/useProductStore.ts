@@ -28,10 +28,11 @@ const useProductStore = create<ProductStore>()((set, get) => ({
     try {
       set({ isLoading: true, errorMessage: "" });
       const products = await apiProduct.fetchAllProducts();
+
       if (products == null) {
         set({ data: [] });
       } else {
-        set({ data: products.data });
+        set({ data: products });
       }
     } catch (error: any) {
       set({
@@ -72,6 +73,7 @@ const useProductStore = create<ProductStore>()((set, get) => ({
     price: number,
     image_url: string
   ) => {
+    console.log("function called");
     try {
       set({ isLoading: true, errorMessage: "" });
       await apiProduct.updateSingleProduct(id, title, price, image_url);
@@ -99,6 +101,7 @@ const useProductStore = create<ProductStore>()((set, get) => ({
     } finally {
       set({ isLoading: false });
     }
+    get().fetchAllProducts();
   },
 }));
 

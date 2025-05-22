@@ -1,18 +1,21 @@
-import { DeleteIcon, EditIcon, TrashIcon } from "lucide-react";
+import { EditIcon, TrashIcon } from "lucide-react";
+import type Product from "../../domain/entity/product";
 
-const CustomCard = () => {
+interface Props {
+  product: Product;
+  deleteSingleProduct: () => void;
+}
+
+const CustomCard = ({ product, deleteSingleProduct }: Props) => {
   return (
     <div className="p-10 m-auto lg:m-0 ">
-      <div className="card bg-base-100 w-64 shadow-xl ">
+      <div className="card bg-base-100 w-64 shadow-xl h-72">
         <figure>
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-            alt="Shoes"
-          />
+          <img src={product.image_url} alt="Shoes" />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">Title</h2>
-          <p>price</p>
+          <h2 className="card-title">{product.title}</h2>
+          <p>${product.price}</p>
           <div className="card-actions justify-between">
             {/* Action */}
             <button className="btn btn-primary w-15">
@@ -20,7 +23,7 @@ const CustomCard = () => {
             </button>
             {/* Action */}
             <button className="btn bg-red-200">
-              <TrashIcon />
+              <TrashIcon onClick={deleteSingleProduct} />
             </button>
           </div>
         </div>
