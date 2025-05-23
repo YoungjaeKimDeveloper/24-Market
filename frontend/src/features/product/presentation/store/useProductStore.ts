@@ -51,11 +51,7 @@ const useProductStore = create<ProductStore>()((set, get) => ({
         price,
         image_url
       );
-      if (newProduct) {
-        toast.success("new Item has been created successfully✅");
-      } else {
-        toast.error("Failed to create new product❌");
-      }
+      toast.success("Item has been created✅");
     } catch (error: any) {
       set({
         errorMessage: `ERROR IN CREATING NEW PRODUCT ${error.message || ""}`,

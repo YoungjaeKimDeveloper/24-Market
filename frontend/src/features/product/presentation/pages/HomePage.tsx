@@ -2,25 +2,18 @@ import { RefreshCcw } from "lucide-react";
 import CustomCard from "../components/CustomCard";
 import useProductStore from "../store/useProductStore";
 import { useEffect } from "react";
+import CustomLoading from "../components/CustomLoading";
 
 const HomePage = () => {
-  const {
-    data,
-    isLoading,
-    fetchAllProducts,
-    deleteSingleProduct,
-    updateSingleProduct,
-  } = useProductStore();
+  const { data, isLoading, fetchAllProducts, deleteSingleProduct } =
+    useProductStore();
+
   useEffect(() => {
     fetchAllProducts();
   }, []);
-  console.log("DATA IS IN HOMEPAGE", data);
+
   if (isLoading) {
-    return (
-      <div className="flex justify-center items-center min-h-screen">
-        <span className="loading loading-spinner loading-xs animate-bounce size-12"></span>
-      </div>
-    );
+    return <CustomLoading />;
   }
   // BUILD UI
   return (
@@ -33,7 +26,7 @@ const HomePage = () => {
         />
       </div>
       {/* CARD GRID */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 items-center justify-center ">
+      <div className="grid grid-cols-1 lg:grid-cols-4 items-center justify-center place-items-center">
         {data.map((product) => (
           <CustomCard
             key={product.product_id}
