@@ -1,5 +1,7 @@
 import { EditIcon, TrashIcon } from "lucide-react";
 import type Product from "../../domain/entity/product";
+import { useState } from "react";
+// import CustomModal from "./CustomModal";
 
 interface Props {
   product: Product;
@@ -7,6 +9,10 @@ interface Props {
 }
 
 const CustomCard = ({ product, deleteSingleProduct }: Props) => {
+  const [isShowModal, setIsShowModal] = useState<boolean>(false);
+  const toggleModal = () => {
+    setIsShowModal((prev) => !prev);
+  };
   // BUILD UI
   return (
     <div className="p-10 m-auto lg:m-0 ">
@@ -21,7 +27,7 @@ const CustomCard = ({ product, deleteSingleProduct }: Props) => {
           <p>${product.price}</p>
           <div className="card-actions justify-between">
             {/* Action */}
-            <button className="btn btn-primary w-15">
+            <button className="btn btn-primary w-15" onClick={toggleModal}>
               <EditIcon />
             </button>
             {/* Action */}
@@ -31,6 +37,19 @@ const CustomCard = ({ product, deleteSingleProduct }: Props) => {
           </div>
         </div>
       </div>
+      {isShowModal ? (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-8 rounded shadow">
+            <h3 className="font-bold text-lg">Hello!</h3>
+            <p className="py-4">Click to close</p>
+            <button className="btn" onClick={toggleModal}>
+              Close
+            </button>
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
