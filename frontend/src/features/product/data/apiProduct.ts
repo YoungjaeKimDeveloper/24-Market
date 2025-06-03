@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /*
 
     Implement Product Repo
@@ -46,6 +47,7 @@ class ApiProduct implements ProductRepo {
     title: string,
     price: number,
     image_url: string
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ): Promise<any> => {
     try {
       const request = await axiosInstance.put(`/${id}`, {
@@ -57,7 +59,7 @@ class ApiProduct implements ProductRepo {
         console.debug("Product has been updated successfully ✅");
       }
     } catch (error) {
-      console.error("Failed to update a product");
+      console.error("Failed to update a product", error);
     }
   };
   // Delete a product
@@ -69,7 +71,7 @@ class ApiProduct implements ProductRepo {
         console.debug("Product has been deleted successfully ✅");
       }
     } catch (error) {
-      console.error("Failed to update a product");
+      console.error("Failed to update a product", error);
     }
   };
 }
