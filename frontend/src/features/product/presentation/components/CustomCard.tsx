@@ -25,7 +25,9 @@ const CustomCard = ({ product, deleteSingleProduct }: Props) => {
           <h2 className="card-title uppercase w-full text-ellipsis">
             {product.title}
           </h2>
-          <p>${product.price}</p>
+          <p>
+            $<span className="font-bold">{product.price}</span>
+          </p>
           <div className="card-actions justify-between">
             {/* Action */}
             <button className="btn btn-primary w-15" onClick={toggleModal}>

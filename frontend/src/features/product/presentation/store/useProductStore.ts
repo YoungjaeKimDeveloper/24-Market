@@ -46,11 +46,7 @@ const useProductStore = create<ProductStore>()((set, get) => ({
   createProduct: async (title: string, price: number, image_url: string) => {
     try {
       set({ isLoading: true, errorMessage: "" });
-      const newProduct = await apiProduct.createProduct(
-        title,
-        price,
-        image_url
-      );
+      await apiProduct.createProduct(title, price, image_url);
       toast.success("Item has been created✅");
     } catch (error: any) {
       set({
@@ -73,12 +69,12 @@ const useProductStore = create<ProductStore>()((set, get) => ({
     try {
       set({ isLoading: true, errorMessage: "" });
       await apiProduct.updateSingleProduct(id, title, price, image_url);
-      toast.success("Item has been deleted successfully✅");
+      toast.success("Item has been Updated successfully✅");
     } catch (error: any) {
       set({
         errorMessage: `Failed to fetch all products ${error.message ?? " "}`,
       });
-      toast.error("Failed to delete a product❌");
+      toast.error("Failed to updateSingleProduct a product❌");
     } finally {
       set({ isLoading: false });
     }

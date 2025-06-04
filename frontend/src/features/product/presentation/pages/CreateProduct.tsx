@@ -4,6 +4,7 @@ import { useState } from "react";
 import useProductStore from "../store/useProductStore";
 import CustomLoading from "../components/CustomLoading";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 /*
 
@@ -23,10 +24,14 @@ const CreateProduct = () => {
   }
 
   const onCreateProduct = () => {
+    if (!title || !price || !image_url) {
+      toast.error("Please fill in all the forms.");
+      return;
+    }
     createProduct(title, price, image_url);
-
     navigate("/");
   };
+
   // BUILD UI
   return (
     // Layout
