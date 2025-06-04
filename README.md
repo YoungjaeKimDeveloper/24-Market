@@ -14,40 +14,19 @@
 
 ## 🧠 Features
 
-✅ Built with the **PERN Stack** (PostgreSQL, Express, React, Node)  
-✅ Written entirely in **TypeScript** (frontend + backend)  
-✅ Organized with **Clean Architecture** (Domain / Data / Presentation layers)  
-✅ Fully responsive UI using **Tailwind CSS + DaisyUI**  
-✅ Custom **Zustand-style store** for local state management  
-✅ Full **CRUD** for products (Create, Read, Update, Delete)  
-✅ RESTful API & modular routing  
-✅ Secure using `helmet`, `cors`, and environment configs  
-✅ Ready for deployment with `vite build`, `tsc`, and `serve dist`
+Built with the **PERN Stack** (PostgreSQL, Express, React, Node)  
+Written entirely in **TypeScript** (frontend + backend)  
+Organized with **Clean Architecture** (Domain / Data / Presentation layers)  
+Fully responsive UI using **Tailwind CSS + DaisyUI**  
+Custom **Zustand-style store** for local state management  
+Full **CRUD** for products (Create, Read, Update, Delete)  
+RESTful API & modular routing  
+Secure using `helmet`, `cors`, and environment configs  
+Ready for deployment with `vite build`, `tsc`, and `serve dist`
 
 ---
 
-## 📁 Project Structure
-
-24-market/
-├── backend/
-│ └── src/
-│ ├── features/product/
-│ ├── schema/
-│ └── server.ts
-├── frontend/
-│ ├── public/
-│ │ └── favicon.png
-│ └── src/
-│ ├── features/product/
-│ │ ├── data/
-│ │ ├── domain/
-│ │ └── presentation/
-│ ├── config/
-│ └── store/
-├── README.md
-├── package.json
-
-## 🚀 Getting Started
+## How to start
 
 ### 1. Clone the Repository
 
@@ -63,12 +42,12 @@ cd 24-Market
 3. Environment Variables
    Create .env files in both frontend and backend directories:
 
-<details> <summary><strong>📦 .env (backend)</strong></summary>
+  <details> <summary><strong>.env (backend)</strong></summary>
 
 PORT=8080
 NEON_DATABASE_URL=your_postgres_connection_url
 
-</details> <details> <summary><strong>🌐 .env (frontend)</strong></summary>
+  </details> <details> <summary><strong>.env (frontend)</strong></summary>
 
 VITE_LOCAL_HOST=localhost:8080
 
