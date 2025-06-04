@@ -14,19 +14,19 @@
 
 ## 🧠 Features
 
-Built with the **PERN Stack** (PostgreSQL, Express, React, Node)  
-Written entirely in **TypeScript** (frontend + backend)  
-Organized with **Clean Architecture** (Domain / Data / Presentation layers)  
-Fully responsive UI using **Tailwind CSS + DaisyUI**  
-Custom **Zustand-style store** for local state management  
-Full **CRUD** for products (Create, Read, Update, Delete)  
-RESTful API & modular routing  
-Secure using `helmet`, `cors`, and environment configs  
-Ready for deployment with `vite build`, `tsc`, and `serve dist`
+- ✅ Built with the **PERN Stack** (PostgreSQL, Express, React, Node)
+- ✅ Written entirely in **TypeScript** (frontend + backend)
+- ✅ Organized with **Clean Architecture** (Domain / Data / Presentation layers)
+- ✅ Fully responsive UI using **Tailwind CSS + DaisyUI**
+- ✅ Custom **Zustand-style store** for state management
+- ✅ Full **CRUD** for products
+- ✅ RESTful API & modular routing
+- ✅ Secure using `helmet`, `cors`, and `.env`
+- ✅ Ready for deployment with `vite build`, `tsc`, and `serve dist`
 
 ---
 
-## How to start
+## 🚀 How to Start
 
 ### 1. Clone the Repository
 
@@ -35,32 +35,43 @@ git clone https://github.com/YoungjaeKimDeveloper/24-Market.git
 cd 24-Market
 ```
 
-2. Install Dependencies
-   npm install
-   cd frontend && npm install
+### 2. Install Dependencies
 
-3. Environment Variables
-   Create .env files in both frontend and backend directories:
+```bash
+npm install
+cd frontend && npm install
+```
 
-  <details> <summary><strong>.env (backend)</strong></summary>
+### 3. Setup Environment Variables
 
+Create `.env` files in both `backend/` and `frontend/` directories:
+
+<details>
+<summary><strong>.env (backend)</strong></summary>
+
+```env
 PORT=8080
-NEON_DATABASE_URL=your_postgres_connection_url
+NEON_DATABASE_URL=your_postgres_url
+```
 
-  </details> <details> <summary><strong>.env (frontend)</strong></summary>
+</details>
 
+<details>
+<summary><strong>.env (frontend)</strong></summary>
+
+```env
 VITE_LOCAL_HOST=localhost:8080
+```
 
-4. Run Dev Servers
+</details>
 
-# In root (backend)
+### 4. Run Dev Servers
 
+```bash
+# Run backend
 npm run dev
 
-# In frontend
-
+# Run frontend
 cd frontend
 npm run dev
-
-Author
-Youngjae Kim
+```
