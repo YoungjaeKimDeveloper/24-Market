@@ -47,7 +47,7 @@ const useProductStore = create<ProductStore>()((set, get) => ({
     try {
       set({ isLoading: true, errorMessage: "" });
       await apiProduct.createProduct(title, price, image_url);
-      toast.success("Item has been created✅");
+      toast.success("Created ✅");
     } catch (error: any) {
       set({
         errorMessage: `ERROR IN CREATING NEW PRODUCT ${error.message || ""}`,
@@ -69,7 +69,7 @@ const useProductStore = create<ProductStore>()((set, get) => ({
     try {
       set({ isLoading: true, errorMessage: "" });
       await apiProduct.updateSingleProduct(id, title, price, image_url);
-      toast.success("Item has been Updated successfully ✅");
+      toast.success("Updated ✅");
     } catch (error: any) {
       set({
         errorMessage: `Failed to fetch all products ${error.message ?? " "}`,
@@ -84,7 +84,7 @@ const useProductStore = create<ProductStore>()((set, get) => ({
     try {
       set({ isLoading: true, errorMessage: "" });
       await apiProduct.deleteSingleProduct(id);
-      toast.success("Item has been deleted successfully✅");
+      toast.success("Deleted ✅");
     } catch (error: any) {
       set({
         errorMessage: `Failed to fetch all products ${error.message ?? " "}`,
