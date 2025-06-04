@@ -5,8 +5,8 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/TypeScript-Strict-blue?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/PostgreSQL-Neon-success?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Frontend-React%20+%20Vite-blueviolet?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/PostgreSQL-Neon-success?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Backend-Express%20%2B%20TS-brightgreen?style=for-the-badge"/>
 </p>
 
