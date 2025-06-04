@@ -22,7 +22,7 @@
 - Full **CRUD** for products
 - RESTful API & modular routing
 - Secure using `helmet`, `cors`, and `.env`
-- Ready for deployment with `vite build`, `tsc`, and `serve dist`
+- Ready for deployment with `vite build`, `tsc` and `serve dist`
 
 ---
 
