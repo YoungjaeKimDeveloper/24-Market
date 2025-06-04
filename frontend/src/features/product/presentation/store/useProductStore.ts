@@ -17,7 +17,6 @@ const useProductStore = create<ProductStore>()((set, get) => ({
   // States
   // Data
   data: [] as Product[],
-
   // Statement
   isLoading: false,
   // Messages

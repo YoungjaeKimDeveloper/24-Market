@@ -7,7 +7,8 @@ interface Props {
 }
 
 const CustomEditProduct = ({ toggleModal, product }: Props) => {
-  const { updateSingleProduct } = useProductStore();
+  const { fetchAllProducts, updateSingleProduct, isLoading } =
+    useProductStore();
   // Track the Value in the local
   const [title, setTitle] = useState<string | null>(product.title || null);
   const [price, setPrice] = useState<number | null>(product.price || null);
@@ -43,9 +44,30 @@ const CustomEditProduct = ({ toggleModal, product }: Props) => {
             <button className="btn" onClick={toggleModal}>
               Cancel
             </button>
-            <button className="btn" onClick={toggleModal}>
-              Edit
-            </button>
+            {isLoading ? (
+              <span className="loading loading-spinner loading-xs"></span>
+            ) : (
+              <button
+                type="button"
+                className="btn"
+                onClick={async () => {
+                  try {
+                    await updateSingleProduct(
+                      product.product_id!,
+                      title!,
+                      price!,
+                      imageUrl!
+                    );
+                    await fetchAllProducts();
+                    toggleModal(); // 완료 후 모달 닫기
+                  } catch (error) {
+                    console.error("Failed to update:", error);
+                  }
+                }}
+              >
+                Edit
+              </button>
+            )}
           </div>
         </form>
       </div>
