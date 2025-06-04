@@ -28,7 +28,7 @@ export const createProduct = async (
       if (newProduct != null) {
         return res.status(200).json({
           success: true,
-          message: "New product has been created successfully✅",
+          message: "New product has been created successfully ✅",
           product: newProduct,
         });
       } else {

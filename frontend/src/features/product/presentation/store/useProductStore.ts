@@ -69,7 +69,7 @@ const useProductStore = create<ProductStore>()((set, get) => ({
     try {
       set({ isLoading: true, errorMessage: "" });
       await apiProduct.updateSingleProduct(id, title, price, image_url);
-      toast.success("Item has been Updated successfully✅");
+      toast.success("Item has been Updated successfully ✅");
     } catch (error: any) {
       set({
         errorMessage: `Failed to fetch all products ${error.message ?? " "}`,

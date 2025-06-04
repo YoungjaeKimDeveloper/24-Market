@@ -29,10 +29,7 @@ const CreateProduct = () => {
       toast.error("Please fill in all the forms correctly.");
       return;
     }
-    if (typeof price !== "number" || isNaN(price)) {
-      toast.error("Please write a valid number for price.");
-      return;
-    }
+
     createProduct(title, price, image_url);
     navigate("/");
   };

@@ -2,7 +2,7 @@
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only backend/src/server.ts",
     "build": "tsc",
-    "start": "node backend/dist/index.js"
+    "start": "node backend/dist/server.js"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.0.0",
