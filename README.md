@@ -76,4 +76,4 @@ cd frontend
 npm run dev
 ```
 
-![App Screenshot](./frontend/public/screenshot.png)
+![App Screenshot](./frontend/public/screenShot.png)
