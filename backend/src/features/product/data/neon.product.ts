@@ -1,14 +1,13 @@
 /*
 
     Implement the funcaionlity to communicate with Database
-    실제 DB와 연결되는곳 - Repository
+    Repository
     SQL SingleTon
 
 */
 import { ProductRepo } from "../domain/repo/product.repo";
 import Product from "../domain/entities/product.entity";
 import sql from "../../../config/db";
-import productRouter from "../application/router/product.router";
 // Follow the contract
 class NeonProduct implements ProductRepo {
   // CreateProduct - C

@@ -1,6 +1,7 @@
 import type Product from "../../domain/entity/product";
 import { useState } from "react";
 import useProductStore from "../store/useProductStore";
+import toast from "react-hot-toast";
 interface Props {
   product: Product;
   toggleModal: () => void;
@@ -52,6 +53,10 @@ const CustomEditProduct = ({ toggleModal, product }: Props) => {
                 className="btn"
                 onClick={async () => {
                   try {
+                    if (!title?.trim() || !price || !imageUrl) {
+                      toast.error("Please complete all the forms");
+                      return;
+                    }
                     await updateSingleProduct(
                       product.product_id!,
                       title!,

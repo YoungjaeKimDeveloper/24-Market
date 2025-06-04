@@ -1,5 +1,7 @@
 /*
+
   Repository - contract
+  
 */
 import Product from "../entities/product.entity";
 export interface ProductRepo {

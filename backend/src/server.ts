@@ -11,8 +11,8 @@ import productRouter from "./features/product/application/router/product.router"
 const initDB = async () => {
   try {
     await productSchema();
-  } catch (error) {
-    console.log("Failed to connectDB❌");
+  } catch (error: any) {
+    console.error("Failed to connectDB ", error.message);
   }
 };
 

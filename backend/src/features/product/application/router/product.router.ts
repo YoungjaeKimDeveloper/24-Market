@@ -1,5 +1,5 @@
 /*
-    Produt Endpoint 
+    Produt API Endpoint 
 */
 import express from "express";
 import {
@@ -12,7 +12,7 @@ import {
 
 const productRouter = express.Router();
 
-// Create new Product
+// Create new Product - C
 productRouter.post("/", createProduct);
 // fetchAllProducts - R
 productRouter.get("/", fetchAllProductsHandler);

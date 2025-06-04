@@ -2,7 +2,7 @@
 /*
   
   State Management 
-  API <---> State <---> 
+  API <---> State management <---> UI
  
 */
 import type Product from "../../domain/entity/product.ts";
