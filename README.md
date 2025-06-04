@@ -14,19 +14,19 @@
 
 ## 🧠 Features
 
-- ✅ Built with the **PERN Stack** (PostgreSQL, Express, React, Node)
-- ✅ Written entirely in **TypeScript** (frontend + backend)
-- ✅ Organized with **Clean Architecture** (Domain / Data / Presentation layers)
-- ✅ Fully responsive UI using **Tailwind CSS + DaisyUI**
-- ✅ Custom **Zustand-style store** for state management
-- ✅ Full **CRUD** for products
-- ✅ RESTful API & modular routing
-- ✅ Secure using `helmet`, `cors`, and `.env`
-- ✅ Ready for deployment with `vite build`, `tsc`, and `serve dist`
+- Built with the **PERN Stack** (PostgreSQL, Express, React, Node)
+- Written entirely in **TypeScript** (frontend + backend)
+- Organized with **Clean Architecture** (Domain / Data / Presentation layers)
+- Fully responsive UI using **Tailwind CSS + DaisyUI**
+- Custom **Zustand-style store** for state management
+- Full **CRUD** for products
+- RESTful API & modular routing
+- Secure using `helmet`, `cors`, and `.env`
+- Ready for deployment with `vite build`, `tsc`, and `serve dist`
 
 ---
 
-## 🚀 How to Start
+## How to Start
 
 ### 1. Clone the Repository
 
@@ -75,3 +75,5 @@ npm run dev
 cd frontend
 npm run dev
 ```
+
+![App Screenshot](./frontend/public/screenshot.png)
